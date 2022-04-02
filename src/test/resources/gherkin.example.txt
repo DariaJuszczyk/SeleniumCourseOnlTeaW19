@@ -1,0 +1,25 @@
+1. wyszukiwanie dowolnej frazy w wyszukiwarce Duckduckgo
+Scenario: Search with https://duckduckgo.com/
+Given Page https://duckduckgo.com/ opened in browser
+When Search phrase: "W pustyni i w puszczy" entered in search input box
+And Key Enter pressed
+Then First 3 search results contain phrase: "W pustyni i w puszczy"
+
+2. logowanie do portalu edukacyjnego Coders Lab https://lms.coderslab.pl
+Scenario: Search with https://lms.coderslab.pl/
+Given Page https://lms.coderslab.pl/ opened in browser
+Enter your email address
+Enter the password
+And the Enter key pressed               DO POPRAWY
+
+3. Scenario: uruchomienie pierwszej prezentacji z preworku Java na kursie testera automatyzującego.
+Scenario: Run first Java prework animation on automation course
+
+Given: User is on main page https://lms.coderslab.pl/
+When: User has entered correct email address associated with database
+AND User has entered valid password
+AND User Click Login button
+AND User Click Automation Engineer Course
+AND User Click on Prework Java Chapter
+And User Click on first animation course
+Then: Prework Java animation course starts.
