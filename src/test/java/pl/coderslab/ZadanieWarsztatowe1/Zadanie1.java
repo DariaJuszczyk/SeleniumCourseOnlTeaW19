@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Zadanie1 {
     private WebDriver driver;
+    Logowanie l;
 
     @Given("^Otwarcie w przeglądarce strony do logowania (.*)$")
     public void otworzStrone(String adresURL) {
@@ -20,10 +21,20 @@ public class Zadanie1 {
         driver.get(adresURL);
     }
 
-    @When("^W polu Email zostanie wpisany adres użytkownika (.*) i w polu Password zostanie wprowadzone powiązane z kontem użytkownika hasło (.*) i zostanie wciśnięty przycisk SIGN IN$")
-    public void zalogujUzytkownika(String adresEmail, String haslo) {
-        Logowanie l = new Logowanie(driver);
-        l.zaloguj(adresEmail, haslo);
+    @When("^W polu Email zostanie wpisany adres użytkownika (.*)$")
+    public void wpiszLogin(String pLogin) {
+        l = new Logowanie(driver);
+        l.uzupełnijLogin(pLogin);
+    }
+
+    @And("^W polu Password zostanie wprowadzone powiązane z kontem użytkownika hasło (.*)$")
+    public void wpiszHaslo(String pHaslo) {
+        l.uzupełnijHaslo(pHaslo);
+    }
+
+    @And("^Zostanie wciśnięty przycisk SIGN IN$")
+    public void zaloguj() {
+        l.zaloguj();
     }
 
     @And ("^Zostanie wciśnięty przycisk ADDRESSES$")

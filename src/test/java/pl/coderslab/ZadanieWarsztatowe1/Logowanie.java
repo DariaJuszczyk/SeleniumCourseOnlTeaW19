@@ -17,11 +17,18 @@ public class Logowanie {
         PageFactory.initElements(driver, this);
     }
 
-    public void zaloguj(String pEmail, String pHaslo){
+
+    public void uzupełnijLogin(String pLogin){
         this.email.clear();
+        this.email.sendKeys(pLogin);
+    }
+
+    public void uzupełnijHaslo(String pHaslo){
         this.haslo.clear();
-        this.email.sendKeys(pEmail);
         this.haslo.sendKeys(pHaslo);
+    }
+
+    public void zaloguj(){
         this.btnZaloguj.click();
     }
 }
