@@ -16,16 +16,21 @@ public class Logowanie {
     @FindBy(id = "category-3")
     private WebElement clothes;
 
-
     public Logowanie(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    public void zaloguj(String pEmail, String pHaslo) {
+    public void wprowadzLogin(String pEmail){
         this.email.clear();
-        this.haslo.clear();
         this.email.sendKeys(pEmail);
+    }
+
+    public void wprowadzHaslo(String pHaslo){
+        this.haslo.clear();
         this.haslo.sendKeys(pHaslo);
+    }
+
+    public void zaloguj(){
         this.btnZaloguj.click();
     }
 
